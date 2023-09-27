@@ -618,7 +618,7 @@ function checkForFinish() {
       pcodeInput.focus();
     } else {
       document.getElementById("clockwork-content").style = "";
-      sendNotification("Welcome to Clockwork", "Clockwork is currently running " + version)
+      sendNotification("Welcome to Clockmod", "Clockmod is currently running " + version)
     }
   } else {
     setTimeout(checkForFinish, 500);
