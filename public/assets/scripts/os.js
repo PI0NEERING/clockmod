@@ -579,10 +579,10 @@ if (localStorage.getItem("apps") == null || localStorage.getItem("apps") == "!!r
     "/assets/apps/store.json",
     // MUENSTER
     "/assets/apps/muenster.json",
-    // CHANGELOG
-    "/assets/apps/changelog.json",
     // BROWSER
-    "/assets/apps/rammer.json"
+    "/assets/apps/rammer.json",
+    // CHANGELOG
+    "/assets/apps/changelog.json"
   ];
   localStorage.setItem("apps", JSON.stringify(apps));
 } else {
