@@ -1,0 +1,10 @@
+{
+  "name": "Changelog",
+  "desc": "Clockmod changelog.",
+  "url": "../../changelog.md",  
+  "encodedUrl": "no",
+  "icon": "/assets/images/store.png",
+  "version": "1.0.0",
+  "finderTerms": ["app store","theme store","shop"],
+  "permissions": ["installApp","installTheme","noUninstall"]
+}
