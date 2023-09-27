@@ -737,29 +737,29 @@ async function installApp(url, params) {
       })) {
         throw "App already installed!";
       }
-let json = await response.text();
-json = JSON.parse(json);
+      let json = await response.text();
+      json = JSON.parse(json);
 
-// Create the iframe element
-let myIframe = document.createElement("IFRAME");
-myIframe.src = "about:blank";
-myIframe.id = "apppanel:" + url;
-myIframe.className = "app";
-appPanel.appendChild(myIframe);
+      // Create the iframe element
+      let myIframe = document.createElement("IFRAME");
+      myIframe.src = "about:blank";
+      myIframe.id = "apppanel:" + url;
+      myIframe.className = "app";
+      appPanel.appendChild(myIframe);
 
-// Initialize draggable behavior for the iframe
-initDraggableWindow(myIframe);
+      // Initialize draggable behavior for the iframe
+      initDraggableWindow(myIframe);
 
-var myAppData = {
-  name: json.name,
-  desc: json.desc,
-  url: url,
-  appUrl: json.url,
-  version: json.version,
-  encodedUrl: json.encodedUrl,
-  permissions: json.permissions,
-  icon: json.icon
-}
+      var myAppData = {
+        name: json.name,
+        desc: json.desc,
+        url: url,
+        appUrl: json.url,
+        version: json.version,
+        encodedUrl: json.encodedUrl,
+        permissions: json.permissions,
+        icon: json.icon
+      }
 
       var finderTerms = json?.finderTerms;
       var myFinderData = {
