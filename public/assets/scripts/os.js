@@ -1229,7 +1229,7 @@ pcodeInput.oninput = function () {
       setTimeout(function () {
         document.getElementById("clockwork-lock").style = "display: none;"
       }, 300);
-      sendNotification("Welcome to Clockwork", "Clockwork is currently running " + version)
+      sendNotification("Welcome to Clockmod", "Clockmod is currently running " + version)
     } else {
       pcodeInput.value = "";
     }
