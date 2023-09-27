@@ -10,7 +10,7 @@ const settingsRightBox = document.querySelector("#apppanel\\:sys_settings .right
 const yes = true;
 const no = false;
 
-var currentApp = "changelog";
+var currentApp = "home";
 
 var apps = null;
 var appData = [];
@@ -579,8 +579,10 @@ if (localStorage.getItem("apps") == null || localStorage.getItem("apps") == "!!r
     "/assets/apps/store.json",
     // MUENSTER
     "/assets/apps/muenster.json",
-    //  CHANGELOG
-    "/assets/apps/changelog.json"
+    // CHANGELOG
+    "/assets/apps/changelog.json",
+    // BROWSER
+    "/assets/apps/rammer.json"
   ];
   localStorage.setItem("apps", JSON.stringify(apps));
 } else {
