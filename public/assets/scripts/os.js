@@ -36,7 +36,7 @@ var plugins = null;
 
 // PATCH is backwards-compatible changes for security and bug fixes only
 
-var version = "2.0.0.0-beta14";
+var version = "PRA-Public-Release-Alpha-0.0.1";
 
 contextMenu.style.display = "none";
 
@@ -479,8 +479,8 @@ const searchables = [{
   },
 },
 {
-  searchText: ["about clockwork", "version clockwork", "clockwork version"],
-  name: "About Clockwork",
+  searchText: ["about clockmod", "version clockmod", "clockmod version"],
+  name: "About Clockmod",
   icon: "/assets/images/ui/clockwork.png",
   onclick: function () {
     openApp('sys_settings');
