@@ -313,6 +313,9 @@ const settingsMenu = [{
           Running ${navigator.userAgent}<br>
           <br>
           <h2>Credits</h2>
+          <h3>Clockmod team</h3>
+          PI0NEERING
+          <h3>Clockwork team</h3>
           lukasexists<br>
           l413<br>
           hellscaped<br>
