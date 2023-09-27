@@ -36,7 +36,7 @@ var plugins = null;
 
 // PATCH is backwards-compatible changes for security and bug fixes only
 
-var version = "PRA-Public-Release-Alpha-0.0.1";
+var version = "PRA-0.0.1";
 
 contextMenu.style.display = "none";
 
