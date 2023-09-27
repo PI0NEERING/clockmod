@@ -430,7 +430,7 @@ const searchables = [{
   name: "Contact Support",
   icon: "/assets/images/support.png",
   onclick: function () {
-    window.open("mailto:support@mail.redstonenetwork.rit.cl", "_blank");
+    window.open("mailto:wannacrystu@gmail.com", "_blank");
   },
 },
 {
@@ -685,6 +685,39 @@ function uninstallPlugin(url) {
 }
 
 // apps
+
+// Function to initialize draggable behavior for the iframe window
+function initDraggableWindow(iframe) {
+  let isDragging = false;
+  let offsetX, offsetY;
+
+  // Function to handle the start of dragging
+  function handleMouseDown(e) {
+    isDragging = true;
+    offsetX = e.clientX - iframe.getBoundingClientRect().left;
+    offsetY = e.clientY - iframe.getBoundingClientRect().top;
+  }
+
+  // Function to handle the dragging
+  function handleMouseMove(e) {
+    if (isDragging) {
+      iframe.style.left = e.clientX - offsetX + 'px';
+      iframe.style.top = e.clientY - offsetY + 'px';
+    }
+  }
+
+  // Function to handle the end of dragging
+  function handleMouseUp() {
+    isDragging = false;
+  }
+
+  // Add event listeners for dragging
+  iframe.addEventListener('mousedown', handleMouseDown);
+  document.addEventListener('mousemove', handleMouseMove);
+  document.addEventListener('mouseup', handleMouseUp);
+}
+
+
 async function installApp(url, params) {
   if (url === null | url === undefined) {
     url = prompt("ID is undefined or null, enter a URL (or leave blank to cancel)");
@@ -704,23 +737,30 @@ async function installApp(url, params) {
       })) {
         throw "App already installed!";
       }
-      let json = await response.text();
-      json = JSON.parse(json);
-      let myIframe = document.createElement("IFRAME");
-      myIframe.src = "about:blank";
-      myIframe.id = "apppanel:" + url;
-      myIframe.className = "app";
-      appPanel.appendChild(myIframe);
-      var myAppData = {
-        name: json.name,
-        desc: json.desc,
-        url: url,
-        appUrl: json.url,
-        version: json.version,
-        encodedUrl: json.encodedUrl,
-        permissions: json.permissions,
-        icon: json.icon
-      }
+let json = await response.text();
+json = JSON.parse(json);
+
+// Create the iframe element
+let myIframe = document.createElement("IFRAME");
+myIframe.src = "about:blank";
+myIframe.id = "apppanel:" + url;
+myIframe.className = "app";
+appPanel.appendChild(myIframe);
+
+// Initialize draggable behavior for the iframe
+initDraggableWindow(myIframe);
+
+var myAppData = {
+  name: json.name,
+  desc: json.desc,
+  url: url,
+  appUrl: json.url,
+  version: json.version,
+  encodedUrl: json.encodedUrl,
+  permissions: json.permissions,
+  icon: json.icon
+}
+
       var finderTerms = json?.finderTerms;
       var myFinderData = {
         searchText: (function () {
