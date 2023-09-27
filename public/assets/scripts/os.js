@@ -689,32 +689,52 @@ function uninstallPlugin(url) {
 
 // apps
 
-// Function to initialize draggable behavior for the iframe window
 function initDraggableWindow(iframe) {
   let isDragging = false;
-  let offsetX, offsetY;
+  let isResizing = false;
+  let offsetX, offsetY, initialWidth, initialHeight;
 
   // Function to handle the start of dragging
   function handleMouseDown(e) {
-    isDragging = true;
-    offsetX = e.clientX - iframe.getBoundingClientRect().left;
-    offsetY = e.clientY - iframe.getBoundingClientRect().top;
+    const resizeHandle = e.target;
+
+    if (resizeHandle.classList.contains("resize-handle")) {
+      isResizing = true;
+      initialWidth = iframe.offsetWidth;
+      initialHeight = iframe.offsetHeight;
+      offsetX = e.clientX;
+      offsetY = e.clientY;
+    } else {
+      isDragging = true;
+      offsetX = e.clientX - iframe.getBoundingClientRect().left;
+      offsetY = e.clientY - iframe.getBoundingClientRect().top;
+    }
   }
 
-  // Function to handle the dragging
+  // Function to handle the dragging or resizing
   function handleMouseMove(e) {
     if (isDragging) {
       iframe.style.left = e.clientX - offsetX + 'px';
       iframe.style.top = e.clientY - offsetY + 'px';
+    } else if (isResizing) {
+      const newWidth = initialWidth + (e.clientX - offsetX);
+      const newHeight = initialHeight + (e.clientY - offsetY);
+
+      // Limit minimum size to prevent the iframe from becoming too small
+      if (newWidth >= 200 && newHeight >= 200) {
+        iframe.style.width = newWidth + 'px';
+        iframe.style.height = newHeight + 'px';
+      }
     }
   }
 
-  // Function to handle the end of dragging
+  // Function to handle the end of dragging or resizing
   function handleMouseUp() {
     isDragging = false;
+    isResizing = false;
   }
 
-  // Add event listeners for dragging
+  // Add event listeners for dragging and resizing
   iframe.addEventListener('mousedown', handleMouseDown);
   document.addEventListener('mousemove', handleMouseMove);
   document.addEventListener('mouseup', handleMouseUp);
@@ -748,7 +768,12 @@ async function installApp(url, params) {
       myIframe.src = "about:blank";
       myIframe.id = "apppanel:" + url;
       myIframe.className = "app";
+      myIframe.innerHTML = '<div class="resize-handle top-left"></div>' +
+        '<div class="resize-handle top-right"></div>' +
+        '<div class="resize-handle bottom-left"></div>' +
+        '<div class="resize-handle bottom-right"></div>';
       appPanel.appendChild(myIframe);
+
 
       // Initialize draggable behavior for the iframe
       initDraggableWindow(myIframe);
