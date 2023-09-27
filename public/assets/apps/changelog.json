@@ -1,7 +1,7 @@
 {
   "name": "Changelog",
   "desc": "Clockmod changelog.",
-  "url": "../changelog.md",  
+  "url": "../../changelog.md",  
   "encodedUrl": "no",
   "icon": "/assets/images/store.png",
   "version": "1.0.0",
