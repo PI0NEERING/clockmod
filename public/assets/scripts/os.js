@@ -10,7 +10,7 @@ const settingsRightBox = document.querySelector("#apppanel\\:sys_settings .right
 const yes = true;
 const no = false;
 
-var currentApp = "home";
+var currentApp = "changelog";
 
 var apps = null;
 var appData = [];
@@ -575,7 +575,9 @@ if (localStorage.getItem("apps") == null || localStorage.getItem("apps") == "!!r
     // CLOCKWORK APP STORE
     "/assets/apps/store.json",
     // MUENSTER
-    "/assets/apps/muenster.json"
+    "/assets/apps/muenster.json",
+    //  CHANGELOG
+    "/assets/apps/changelog.json"
   ];
   localStorage.setItem("apps", JSON.stringify(apps));
 } else {
