@@ -5,6 +5,6 @@
   "encodedUrl": "no",
   "icon": "/assets/images/store.png",
   "version": "1.0.0",
-  "finderTerms": ["app store","theme store","shop"],
-  "permissions": ["installApp","installTheme","noUninstall"]
+  "finderTerms": ["changelog", "changes", "version history", "release notes", "update log", "software updates", "new features", "bug fixes", "improvements", "enhancements", "software releases", "product updates", "app updates", "patch notes", "release log", "update history", "change log", "revision history", "software changelog", "app release notes"],
+  "permissions": ["noUninstall"]
 }
