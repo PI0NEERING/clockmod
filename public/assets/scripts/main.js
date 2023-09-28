@@ -1,8 +1,7 @@
 /* Used across the Clockwork main pages */
 
 document.querySelector(".navbar").innerHTML = `<a href="https://discord.gg/Gq8ghfTr9k">Discord</a> | 
-<a href="/converter/">Convert v1 apps to v2</a> |
-© 2023 <a href="https://pi0neering.github.io/">PI0NEERING</a>`
+<a href="/converter/">Convert v1 apps to v2</a> | <a href="https://pi0neering.github.io/">PI0NEERING</a>`
 
 
 // for /converter/
